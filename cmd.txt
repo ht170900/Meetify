@@ -1,0 +1,10 @@
+curl -X GET "http://127.0.0.1:8080/fetch_slots?user_id=1&start_time=2024-06-20T02:00:00&end_time=2024-06-23T06:30:00"
+
+
+curl -X POST http://localhost:8080/update_user?id=1 -H "Content-Type: application/json" -d "{\"preferred_timezone\": \"EST\", \"dnd_start_time\": \"2024-06-21T03:49:43+0000\", \"dnd_end_time\": \"2024-06-21T03:49:43+0000\"}"
+
+curl -X POST http://localhost:8080/create_user -H "Content-Type: application/json" -d "{\"name\": \"John Doe\", \"email\": \"john@gmail.com\", \"preferred_timezone\": \"IST\", \"dnd_start_time\": \"2024-06-20T03:49:43+0000\", \"dnd_end_time\": \"2024-06-20T03:49:43+0000\"}"
+{"message": "User created successfully"}
+
+curl -X POST http://localhost:8080/create_meeting?id=1 -H "Content-Type: application/json" -d "{\"meeting_type\": \"online\", \"start_time\": \"2024-06-22T03:49:43+0000\", \"end_time\": \"2024-06-22T04:49:43+0000\", \"timezone\": \"IST\", \"notification_interval\": \"0 10 * * *\"}"
+
