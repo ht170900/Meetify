@@ -40,16 +40,15 @@ VALUES
 
 INSERT INTO meetings ( meeting_type, start_time, end_time, timezone, notification_interval)
 VALUES
-('online', '2024-06-22 10:30:00', '2024-06-22 11:00:00', 'Asia/Kolkata', '*/1 * * * *'), -- During DND period
-( 'offline', '2024-06-22 16:30:00', '2024-06-22 17:00:00', 'Asia/Kolkata', '*/1 * * * *'), -- Post DND period
-('online', '2024-06-22 07:30:00', '2024-06-22 08:30:00', 'Asia/Kolkata', '*/1 * * * *'), -- Pre DND period
-( 'offline', '2024-06-22 14:30:00', '2024-06-22 15:30:00', 'Asia/Kolkata', '*/1 * * * *'); -- DND overlaps meeting time
+('online', '2024-06-22 10:30:00', '2024-06-22 11:00:00', 'Asia/Kolkata', '*/1 * * * *'), 
+( 'offline', '2024-06-22 16:30:00', '2024-06-22 17:00:00', 'Asia/Kolkata', '*/1 * * * *'),
+('online', '2024-06-22 07:30:00', '2024-06-22 08:30:00', 'Asia/Kolkata', '*/1 * * * *'), 
+( 'offline', '2024-06-22 14:30:00', '2024-06-22 15:30:00', 'Asia/Kolkata', '*/1 * * * *'); 
 
 INSERT INTO meetings (id, user_id, meeting_type, start_time, end_time, timezone, notification_interval)
 VALUES
-(13, 7, 'online', '2024-06-23 03:29:00', '2024-06-23 03:56:00', 'Asia/Kolkata', '*/1 * * * *'); -- During DND period
+(13, 7, 'online', '2024-06-23 03:29:00', '2024-06-23 03:56:00', 'Asia/Kolkata', '*/1 * * * *'); 
 
--- Check the inserted data
 SELECT * FROM users WHERE id = 11;
 SELECT * FROM meetings WHERE id = 15;
 
