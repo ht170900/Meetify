@@ -4,19 +4,13 @@ from urllib.parse import urlparse, parse_qs
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
-# Database configuration
-DB_HOST = 'localhost'
-DB_USER = 'root'
-DB_PASS = 'root'
-DB_NAME = 'meetify'
-
 def connect_db():
     return mysql.connector.connect(
-        host=DB_HOST,
-        user=DB_USER,
-        password=DB_PASS,
-        database=DB_NAME
-    )
+            host="localhost",
+            user="root",
+            password="root",
+            database="meetify"
+        )
 
 def fetch_meetings(user_id, start_time, end_time):
     db = connect_db()
@@ -37,7 +31,6 @@ def calculate_free_slots(meetings, start_time, end_time):
     free_slots = []
     current_time = start_time
 
-    # Sort meetings by start time
     meetings.sort(key=lambda x: x['start_time'])
 
     for meeting in meetings:
@@ -127,7 +120,7 @@ class RequestHandler(BaseHTTPRequestHandler):
 def run(server_class=HTTPServer, handler_class=RequestHandler, port=8080):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
-    print(f'Starting httpd server on port {port}...')
+    print(f'Starting server at http://localhost:{port}')
     httpd.serve_forever()
 
 if __name__ == '__main__':
